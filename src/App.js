@@ -35,11 +35,7 @@ const App = () => {
         <NewsCards articles={articles} activeArticle={activeArticle} />
       </div>
       <div className='footer'>
-        Created by{' '}
-        <a href='https://galagai.vercel.app/portfolio' target='_blank'>
-          Gal Agai
-        </a>
-        ©
+        Created by <a href='https://galagai.vercel.app/portfolio'>Gal Agai</a>©
       </div>
     </div>
   );
