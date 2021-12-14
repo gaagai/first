@@ -15,6 +15,9 @@ body {
 }
 .app {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 h1 {
   margin-top: 0;
@@ -29,6 +32,7 @@ p.hint {
   text-align: center;
   margin-top: 0;
   font-weight: 500;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
 }
 .MuiTypography-root.MuiTypography-h5 {
@@ -55,4 +59,7 @@ p.MuiTypography-root.MuiTypography-body2.MuiTypography-colorTextSecondary {
 .top {
   background-color: #f2f3ff;
   padding: 0.5rem 0;
+}
+.footer {
+  color: #474747;
 }

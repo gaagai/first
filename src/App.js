@@ -32,9 +32,15 @@ const App = () => {
             (First press the Mic icon at the lower right corner and say 'Hi')
           </p>
         ) : null}
+        <NewsCards articles={articles} activeArticle={activeArticle} />
       </div>
-      <NewsCards articles={articles} activeArticle={activeArticle} />
-      <div className='footer'>Created by Gal Agai</div>
+      <div className='footer'>
+        Created by{' '}
+        <a href='https://galagai.vercel.app/portfolio' target='_blank'>
+          Gal Agai
+        </a>
+        ©
+      </div>
     </div>
   );
 };

@@ -83,7 +83,7 @@ const NewsCards = ({ articles, activeArticle }) => {
         spacing={3}
       >
         {articles.map((article, i) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex' }}>
+          <Grid item xs={12} sm={6} md={6} lg={6} style={{ display: 'flex' }}>
             <NewsCard
               key={i}
               article={article}
