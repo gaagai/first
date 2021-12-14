@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import alanBtn from '@alan-ai/alan-sdk-web';
 
-function App() {
+import NewsCards from './components/newsCards/NewsCards';
+
+const KEY = process.env.REACT_APP_ALAN;
+
+const App = () => {
+  const [articles, setArticles] = useState([]);
+  const [activeArticle, setActiveArticle] = useState(-1);
+
+  useEffect(() => {
+    alanBtn({
+      key: KEY,
+      onCommand: ({ command, articles }) => {
+        if (command === 'newHeadlines') {
+          setArticles(articles);
+          setActiveArticle(-1);
+        } else if (command === 'highlight') {
+          setActiveArticle((prevArticle) => prevArticle + 1);
+        }
+      },
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <div className='top'>
+        <h1 className='main-title'>Ask for the NEWS</h1>
+        {!articles.length ? (
+          <p className='hint'>
+            (First press the Mic icon at the lower right corner and say 'Hi')
+          </p>
+        ) : null}
+      </div>
+      <NewsCards articles={articles} activeArticle={activeArticle} />
+      <div className='footer'>Created by Gal Agai</div>
     </div>
   );
-}
+};
 
 export default App;
